@@ -1,0 +1,21 @@
+#container {
+	background-color: black;
+}
+
+#logo {
+	text-align: center;
+	/* background-image: url("assets/images/2pac-ppcorn-2016.jpg"); why is it not working??? */
+	/* buy graffiti fonts for when putting into portfolio?? */
+}
+
+h2 {
+	transform: rotate(-30deg);
+	position: relative;
+	left: 160px; /* have to use pixels so that it doesn't move relative to "Hangman" */
+	bottom: 50px; /* have to use pixels so that it doesn't move relative to "Hangman" */
+	width: 96%;
+}
+
+#picture {
+	text-align: center;
+}

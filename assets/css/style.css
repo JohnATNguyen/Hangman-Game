@@ -4,8 +4,7 @@
 
 #logo {
 	text-align: center;
-	/* background-image: url("assets/images/2pac-ppcorn-2016.jpg"); why is it not working??? */
-	/* buy graffiti fonts for when putting into portfolio?? */
+	font-family: ; /* buy graffiti fonts for when putting into portfolio?? */
 }
 
 h2 {
@@ -18,4 +17,15 @@ h2 {
 
 #picture {
 	text-align: center;
+	color: white;
+}
+
+footer {
+	background-color: black;
+	color: white;
+	height: 75px; /* can't do percentage here b/c there's no size to inherit from */ 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 50%;
 }

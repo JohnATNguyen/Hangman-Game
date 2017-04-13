@@ -14,10 +14,12 @@ var californialove = new Audio('assets/2Pac_CaliforniaLoveOriginalVersion_OldSch
 
 // define function to initialize game
 function initialize() {
-	placeholder = [];
 	document.getElementById('picture').innerHTML = '<img src="assets/images/tupac-shakur.jpg">';
 	wordToGuess = songs[Math.floor(Math.random() * songs.length)];
 	wordToGuessLower = wordToGuess.toLowerCase();
+	placeholder = [];
+	wrongGuesses = [];
+	guessesLeft = 10;
 	for (var i = 0; i < wordToGuessLower.length; i++) {
 		placeholder.push('_');
 	}
@@ -26,10 +28,10 @@ function initialize() {
 	document.getElementById('guessesleftelement').textContent = 'Guesses Left: ' + guessesLeft;
 	document.getElementById('winselement').textContent = 'Wins: ' + wins;
 	document.getElementById('losseselement').textContent = 'Losses: ' + losses;
+	document.getElementById("start").disabled = true;
+	californialove.pause();
+	californialove.currentTime = 0;
 }
-
-// initialize game
-initialize();
 
 // respond to user input
 document.onkeyup = function (event) {
@@ -64,17 +66,17 @@ document.onkeyup = function (event) {
 		}
 
 		// check if won
-		stringplaceholder = placeholder.join('');
+		var stringplaceholder = placeholder.join('');
 		console.log(stringplaceholder);
 		console.log(wordToGuessLower);
 		if (stringplaceholder == wordToGuessLower) {
 			wins++;
 			document.getElementById('winselement').textContent = 'Wins: ' + wins;
-			placeholder = wordToGuess;
-			document.getElementById('wordtoguesselement').textContent = placeholder;
-			document.getElementById('picture').src = "../images/2pac-ppcorn-2016.jpg";
+			stringplaceholder = wordToGuess;
+			document.getElementById('wordtoguesselement').textContent = stringplaceholder;
+			document.getElementById('picture').innerHTML = '<img src="assets/images/hqdefault.jpg" alt="westside">';
 			californialove.play();
-			initialize();
+			document.getElementById("start").disabled = false;
 		}
 
 		// check if lost
@@ -83,6 +85,7 @@ document.onkeyup = function (event) {
 			document.getElementById('losseselement').textContent = 'Losses: ' + losses;
 			alert('You let \'Pac down... (YOU LOST)!!!')
 			initialize();
+			document.getElementById("start").disabled = false;
 		}
 	}
 }

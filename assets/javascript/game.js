@@ -14,12 +14,10 @@ var californialove = new Audio('assets/2Pac_CaliforniaLoveOriginalVersion_OldSch
 
 // define function to initialize game
 function initialize() {
+	placeholder = [];
 	document.getElementById('picture').innerHTML = '<img src="assets/images/tupac-shakur.jpg">';
 	wordToGuess = songs[Math.floor(Math.random() * songs.length)];
 	wordToGuessLower = wordToGuess.toLowerCase();
-	placeholder = [];
-	wrongGuesses = [];
-	guessesLeft = 10;
 	for (var i = 0; i < wordToGuessLower.length; i++) {
 		placeholder.push('_');
 	}
@@ -66,14 +64,15 @@ document.onkeyup = function (event) {
 		}
 
 		// check if won
-		console.log(placeholder);
+		stringplaceholder = placeholder.join('');
+		console.log(stringplaceholder);
 		console.log(wordToGuessLower);
-		if (placeholder == wordToGuessLower) {
+		if (stringplaceholder == wordToGuessLower) {
 			wins++;
 			document.getElementById('winselement').textContent = 'Wins: ' + wins;
 			placeholder = wordToGuess;
 			document.getElementById('wordtoguesselement').textContent = placeholder;
-			document.getElementById('picture').innerHTML = '<img src="../images/2pac-ppcorn-2016.jpg">';
+			document.getElementById('picture').src = "../images/2pac-ppcorn-2016.jpg";
 			californialove.play();
 			initialize();
 		}

@@ -7,6 +7,15 @@
 	font-family: ; /* buy graffiti fonts for when putting into portfolio?? */
 }
 
+a {
+	color: black;
+}
+
+a:hover {
+	color: black;
+	text-decoration: none;
+}
+
 h2 {
 	transform: rotate(-30deg);
 	position: relative;
